@@ -1,31 +1,182 @@
+/* Reset and Base Styles */
 * {
-  background-color:gray;
-}
-h1{
-  text-align:center;
-  border:solid brown 10px;
-  border-radius:80px;
-  padding:6px;
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
 }
 
-#bodyBorder{
-  border:solid white 8px;
-  padding:15px;
-  text-align:center;
+body {
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  min-height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 20px;
 }
 
-#submitButton{
-  display:block;
-  margin:10px auto auto auto
+.container {
+  width: 100%;
+  max-width: 600px;
+}
+
+/* Header */
+header h1 {
+  text-align: center;
+  color: white;
+  font-size: clamp(1.5rem, 5vw, 2.5rem);
+  margin-bottom: 30px;
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+  padding: 0 10px;
+}
+
+/* Main Content */
+main {
+  background: white;
+  border-radius: 20px;
+  box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
+  overflow: hidden;
+}
+
+#bodyBorder {
+  padding: 40px 30px;
+  text-align: center;
+}
+
+/* Label */
+label {
+  display: block;
+  color: #764ba2;
+  font-size: clamp(1.1rem, 3vw, 1.4rem);
+  font-weight: 600;
+  margin-bottom: 20px;
+}
+
+/* Input */
+#number {
+  width: 100%;
+  max-width: 400px;
+  padding: 15px 20px;
+  font-size: 1.1rem;
+  border: 3px solid #e0e0e0;
+  border-radius: 12px;
+  outline: none;
+  transition: all 0.3s ease;
+  margin-bottom: 20px;
+  text-align: center;
+}
+
+#number:focus {
+  border-color: #667eea;
+  box-shadow: 0 0 0 4px rgba(102, 126, 234, 0.1);
+}
+
+#number::placeholder {
+  color: #999;
+}
+
+/* Button */
+#convert-btn {
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  color: white;
+  border: none;
+  padding: 15px 50px;
+  font-size: 1.1rem;
+  font-weight: 600;
+  border-radius: 12px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  box-shadow: 0 4px 15px rgba(102, 126, 234, 0.4);
+  min-width: 150px;
+}
+
+#convert-btn:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 6px 20px rgba(102, 126, 234, 0.6);
+}
+
+#convert-btn:active {
+  transform: translateY(0);
+}
+
+/* Output */
+#output {
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  padding: 40px 30px;
+  text-align: center;
+  animation: slideDown 0.4s ease;
+}
+
+#romanNumerals {
+  color: white;
+  font-size: clamp(2rem, 6vw, 3.5rem);
+  font-weight: bold;
+  word-wrap: break-word;
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.2);
+  line-height: 1.4;
 }
 
 .hidden {
-  display:none;
+  display: none;
 }
-p{
-  color:brown;
-  font-size:30px;
-  font-weight:bold;
-  padding:0px;
-  margin-top:10px;
+
+/* Animations */
+@keyframes slideDown {
+  from {
+    opacity: 0;
+    transform: translateY(-20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Mobile Optimization */
+@media (max-width: 480px) {
+  body {
+    padding: 15px;
+  }
+
+  #bodyBorder {
+    padding: 30px 20px;
+  }
+
+  #number {
+    padding: 12px 15px;
+    font-size: 1rem;
+  }
+
+  #convert-btn {
+    padding: 12px 40px;
+    font-size: 1rem;
+    width: 100%;
+    max-width: 300px;
+  }
+
+  #output {
+    padding: 30px 20px;
+  }
+}
+
+/* Tablet Optimization */
+@media (min-width: 481px) and (max-width: 768px) {
+  header h1 {
+    margin-bottom: 25px;
+  }
+
+  #bodyBorder {
+    padding: 35px 25px;
+  }
+}
+
+/* Desktop Enhancement */
+@media (min-width: 769px) {
+  .container {
+    max-width: 650px;
+  }
+  
+  #convert-btn:hover {
+    transform: translateY(-3px) scale(1.02);
+  }
 }
